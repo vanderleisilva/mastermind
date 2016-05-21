@@ -6,7 +6,7 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
 		templateUrl: 'app/not-found/not-found.html',
 		requireLogin: false,
 		ncyBreadcrumb: {
-			label: 'Página não encontrada'
+			label: 'Page not found'
 		}
 	});
 
