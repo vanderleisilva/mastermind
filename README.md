@@ -1,1 +1,3 @@
 # mastermind
+
+The mastermindUI project is based on a famous game called "Mastermind" where players are required to find out an 8 colour password, which can be consisted of different or equal colours, by having at most 10 attempts either a time limit of 5 minutes. Whenever a colour exists and is selected in the right position, a black colour ball at the square on the right hand side of the current attempt is shown, though when only the colour is right, a white colour ball comes up.

@@ -1,11 +1,64 @@
-<article>
+<article  class="mastermind">
   <div class="panel panel-info">
-    <div class="panel-heading">Mastermind Online</div>
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-xs-4">
+          Mastermind Online
+        </div>
+        <div class="col-md-8">
+          <div class="progress" title="Time remaining">
+            <uib-progressbar animate="true" value="mastermind.progress" type="info"><b>{{mastermind.progress}}%</b></uib-progressbar>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="panel-body">
-      Panel content
+      <div class="mm-panel">
+        <table class="table table-hover table-responsive">
+          <tbody>
+            <tr ng-repeat="bullet in mastermind.bullets">
+              <td class="mm-stage text-center">{{bullet}}</td>
+              <td class="mm-field"><i class="empty"></i></td>
+              <td class="mm-field"><i class="empty"></i></td>
+              <td class="mm-field"><i class="empty"></i></td>
+              <td class="mm-field"><i class="empty"></i></td>
+              <td class="mm-field"><i class="empty"></i></td>
+              <td class="mm-field"><i class="empty"></i></td>
+              <td class="mm-field"><i class="empty"></i></td>
+              <td class="mm-field"><i class="empty"></i></td>
+              <td class="mm-partial">
+                  <div class="text-center">
+                    <i class="empty"></i>
+                    <i class="empty"></i>
+                    <i class="empty"></i>
+                    <i class="empty"></i>
+                    <i class="empty"></i>
+                    <i class="empty"></i>
+                    <i class="empty"></i>
+                    <i class="empty"></i>
+                  </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <div class="panel-footer">
-      Instructions
+      <div class="row">
+        <div class="col-xs-1 mm-field"><i class="red"></i></div>
+        <div class="col-xs-1 mm-field"><i class="green"></i></div>
+        <div class="col-xs-1 mm-field"><i class="blue"></i></div>
+        <div class="col-xs-1 mm-field"><i class="yellow"></i></div>
+        <div class="col-xs-1 mm-field"><i class="orange"></i></div>
+        <div class="col-xs-1 mm-field"><i class="purple"></i></div>
+        <div class="col-xs-1 mm-field"><i class="cyan"></i></div>
+        <div class="col-xs-1 mm-field"><i class="magenta"></i></div>
+        <div class="col-xs-4 text-center">
+          <button type="button" class="btn btn-default" ng-click="mastermind.check()"><i class="fa fa-check" aria-hidden="true"></i> Check</button>
+          <button type="button" class="btn btn-default" title="How to play" ng-click="mastermind.help()" ><i class="fa fa-question-circle-o" aria-hidden="true"></i> Help</button>
+          <button type="button" class="btn btn-warning" title="Start new game" ng-click="mastermind.new()" ><i class="fa fa-file-o" aria-hidden="true"></i> New</button>
+        </div>
+      </div>
     </div>
   </div>
 </article>
