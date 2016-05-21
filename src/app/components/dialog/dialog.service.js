@@ -8,8 +8,8 @@ export class DialogService {
 
 	confirm(options) {
 		options = typeof(options) == 'string' ? {message : options} : options;
-		options.confirm = options.confirm ? options.confirm : 'Sim';
-		options.cancel = options.cancel ? options.cancel : 'Não';
+		options.confirm = options.confirm ? options.confirm : 'Yes';
+		options.cancel = options.cancel ? options.cancel : 'No';
 
 		let modalInstance = this.modal.open({
 			templateUrl: 'app/components/dialog/dialog.html',
@@ -36,7 +36,7 @@ export class DialogService {
 
 	alert(options) {
 		options = typeof(options) == 'string' ? {message : options} : options;
-		options.confirm = options.confirm ? options.confirm : 'Sim';
+		options.confirm = options.confirm ? options.confirm : 'Yes';
 		options.header = options.header ? options.header : this.system.name;
 
 		let modalInstance = this.modal.open({
