@@ -1,0 +1,19 @@
+<form novalidate="novalidate" ng-submit="authentication.submit()">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="sr-only" for="username">SSHD</label>
+				<input type="text" class="form-control" id="username" placeholder="user name" ng-minlength="8" maxlength="8" required ng-model="authentication.username">
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="form-group">
+				<label class="sr-only" for="password">Senha</label>
+				<input type="password" class="form-control" id="password" required ng-model="authentication.password" placeholder="password">
+			</div>
+		</div>
+		<div class="col-md-1">
+			<button type="submit" class="btn btn-primary">Go</button>
+		</div>
+	</div>
+</form>

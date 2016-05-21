@@ -1,0 +1,44 @@
+<nav class="hidden-xs">
+	<a ui-sref="inicio" class="btn btn-default"><i class="fa fa-dashboard"></i> Início</a>
+	<div class="btn-group" uib-dropdown>
+		<button type="button" class="btn btn-default" uib-dropdown-toggle>
+			<i class="fa fa-user"></i>  Pessoa <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+			<li role="menuitem"><a href="#">Cadastro</a></li>
+			<li role="menuitem"><a ui-sref="estado-civil">Estado Civil</a></li>
+			<li role="menuitem"><a href="#">Something else here</a></li>
+			<li class="divider"></li>
+			<li role="menuitem"><a href="#">Separated link</a></li>
+		</ul>
+	</div>
+	<div class="btn-group" uib-dropdown>
+		<button type="button" class="btn btn-default" uib-dropdown-toggle>
+			<i class="fa fa-calendar-o"></i>  Eventos <span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+			<li role="menuitem"><a href="#">Cadastro</a></li>
+			<li role="menuitem"><a ui-sref="estado-civil">Estado Civil</a></li>
+			<li role="menuitem"><a href="#">Something else here</a></li>
+			<li class="divider"></li>
+			<li role="menuitem"><a href="#">Separated link</a></li>
+			<li class="dropdown-submenu">
+				<a href="#" data-toggle="dropdown">Dropdown</a>
+				<ul class="dropdown-menu">
+					<li class="dropdown-submenu">
+						<a href="#" data-toggle="dropdown">Dropdown</a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Separated link</a></li>
+							<li class="divider"></li>
+							<li><a href="#">One more separated link</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</nav>

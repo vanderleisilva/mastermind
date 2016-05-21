@@ -1,0 +1,11 @@
+<div class="modal-header">
+	<button type="button" data-dismiss="modal" aria-hidden="true" class="btn close" ng-click="dialog.cancel()">&times;</button>
+	<h4 id="noteLabel" class="modal-title">{{dialog.header}}</h4>
+</div>
+<div class="modal-body">
+	<p ng-bind-html="dialog.body"></p>
+</div>
+<div class="modal-footer">
+	<button ng-click="dialog.confirm()" class="btn btn-primary">{{dialog.confirmText}}</button>
+	<button ng-show="!dialog.hideCancelButton" class="btn btn-default" ng-click="cancel()">{{dialog.cancelText}}</button>
+</div>
