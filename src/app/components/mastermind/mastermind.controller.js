@@ -23,9 +23,9 @@ export class MastermindController {
 				return;
 			}
 
+			this.interval.cancel(stop);
       this.dialog.confirm('Do you really want start a new game?')
 			.then(() => {
-				this.interval.cancel(stop);
 				this.service.new();
 			});
     }, 300000 / 100);
