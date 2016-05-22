@@ -1,10 +1,11 @@
 export class MastermindController {
-	constructor (Dialog, $interval, Mastermind) {
+	constructor (Dialog, $interval, Mastermind, Ranking) {
 		'ngInject';
 		this.dialog = Dialog;
 		this.interval = $interval;
 		this.service = Mastermind;
 		this.isPlaying = false;
+		this.ranking = Ranking;
 	}
 
 	timer(){
@@ -54,6 +55,7 @@ export class MastermindController {
 			if (status.solved == ' true') {
 				this.dialog.confirm("You won congratulations, do you want to start another game?")
 				.then(() => {
+					this.ranking.insert(10);
 					this.new();
 				});
 				return;
@@ -66,12 +68,10 @@ export class MastermindController {
 				return;
 			}
 
+			this.isPlaying = false;
 			this.dialog.confirm("Oh no, you lose! Do you want to start another game?")
 			.then(() => {
 				this.new();
-			})
-			.catch(()=>{
-				this.isPlaying = false;
 			});
 
 		})
