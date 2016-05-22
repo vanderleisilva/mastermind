@@ -52,8 +52,7 @@ export class MastermindController {
 			this.isProcessing = false;
 			var status = data.data;
 
-			if (status.solved !== 'true') {
-				status.time_taken = '120.10';
+			if (status.solved == 'true') {
 				this.ranking.insert((300 - status.time_taken) / 3);
 				this.isPlaying = false;
 				this.dialog.confirm("You won! Congratulations!!! Do you want to start another game?")
