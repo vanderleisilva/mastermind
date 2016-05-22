@@ -6,13 +6,14 @@ export function GeneralrankingbarDirective() {
 	let directive = {
 		restrict: 'E',
 		templateUrl: 'app/components/generalrankingbar/generalrankingbar.html',
+		scope:{
+			show : '='
+		},
 		replace: true,
-		controller: Generalrakingbar,
-		controllerAs: 'generalrakingbar',
+		controller: GeneralrankingbarController,
+		controllerAs: 'generalrankingbar',
 		bindToController: true
 	};
 
 	return directive;
 }
-
-

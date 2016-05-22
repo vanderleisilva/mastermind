@@ -16,14 +16,14 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
         <ul class="nav navbar-nav">
-          <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i> Personal Score</a></li>
-          <li><a href="#"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i> General Rankings</a></li>
-          <li><a href="#" ng-click="header.instructionsbar=true" ><i class="fa fa-question-circle-o" aria-hidden="true"></i> Instructions</a></li>
+          <li><a ng-click=""><i class="fa fa-user" aria-hidden="true"></i> Personal Score</a></li>
+          <li><a ng-click="header.generalrankingbar=true"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i> General Rankings</a></li>
+          <li><a ng-click="header.instructionsbar=true" ><i class="fa fa-question-circle-o" aria-hidden="true"></i> Instructions</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
           <li ng-show="!!header.user.logged()"><a ui-sref="inicio">My account</a></li>
-          <li ng-show="!!header.user.logged()"><a ng-click="header.logout()" href="#">Logout</a></li>
+          <li ng-show="!!header.user.logged()"><a ng-click="header.logout()">Logout</a></li>
           <li ng-show="!header.user.logged()"><a ui-sref="user">Create an account</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->

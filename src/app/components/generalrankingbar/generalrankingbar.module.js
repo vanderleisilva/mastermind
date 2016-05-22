@@ -5,5 +5,3 @@ export default angular.module('app.components.generalrankingbar', [
 ])
 .service('Generalrankingbar', GeneralrankingbarService)
 .directive('jhGeneralrankingbar', GeneralrankingbarDirective);
-
-
