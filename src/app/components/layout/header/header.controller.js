@@ -4,5 +4,6 @@ export class HeaderController {
 
 		this.system = System.name;
 		this.description = System.description;
+		this.instructionsbar = false;
 	}
 }

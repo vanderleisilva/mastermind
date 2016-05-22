@@ -6,6 +6,9 @@ export function InstructionsbarDirective() {
 	let directive = {
 		restrict: 'E',
 		templateUrl: 'app/components/instructionsbar/instructionsbar.html',
+		scope:{
+			show : '='
+		},
 		replace: true,
 		controller: InstructionsbarController,
 		controllerAs: 'instructionsbar',
@@ -14,5 +17,3 @@ export function InstructionsbarDirective() {
 
 	return directive;
 }
-
-
