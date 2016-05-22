@@ -7,10 +7,10 @@ export class AuthenticationController {
 	submit(){
 		this.login({
 			status: this.auth.login({
-				username: this.username,
+				username: this.email,
 				password: this.password
 			})
 		});
 	}
-	
+
 }
