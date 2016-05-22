@@ -7,8 +7,15 @@ export class AuthenticationController {
 	submit(){
 		this.login({
 			status: this.auth.login({
-				username: this.email,
-				password: this.password
+				nmUser: this.email,
+				nmPassword: this.password
+			},
+			{
+	  		method: 'GET',
+				params: {
+					nmUser: this.email,
+					nmPassword: this.password
+  			},
 			})
 		});
 	}
