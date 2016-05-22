@@ -3,6 +3,7 @@ export class UserService {
 		'ngInject';
 
 		this.http = $http;
+                this.http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
 		this.apiHost = System.restUrlBackEnd + 'users';
 		this.storage = localStorageService;
 		this.errorMessage = 'Problem on user request';
