@@ -13,4 +13,10 @@ export class AuthenticationController {
 		});
 	}
 
+	external(provider){
+		this.login({
+			status: this.auth.authenticate(provider)
+		});
+	}
+
 }
