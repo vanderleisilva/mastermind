@@ -6,6 +6,9 @@ export class GeneralrankingbarController {
   }
 
   update(){
-    this.ranking = this.service.get('general');
+    this.service.get('general')
+    .then((response)=>{
+      this.ranking = response.result;
+    });
   }
 }

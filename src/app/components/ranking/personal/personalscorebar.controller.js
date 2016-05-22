@@ -6,6 +6,9 @@ export class PersonalscorebarController {
   }
 
   update(){
-    this.ranking = this.service.get('personal');
+    this.service.get('personal')
+    .then((response)=>{
+      this.ranking = response.data;
+    });
   }
 }
