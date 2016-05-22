@@ -9,3 +9,4 @@ The project is based on angularJS and gulp. It uses [gulp-angular scaffold](http
 1. Install bower dependencies: **bower install**
 2. Install node dependencies: **npm install**
 3. Clone [MastermindB](https://github.com/wrendeiro/mastermindB) project and configure it on your local machine.
+4. Run on terminal **gulp build** (production purpose) or **gulp serve** (development purpose)
