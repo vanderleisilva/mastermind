@@ -12,7 +12,8 @@ export default angular.module('app.components.core', [
 	'ui.mask',
 	'jcs-autoValidate',
 	'angular-loading-bar',
-	'ngAnimate'
+	'ngAnimate',
+	'LocalStorageModule'
 ])
 .provider('System', SystemProvider)
 .config(config)

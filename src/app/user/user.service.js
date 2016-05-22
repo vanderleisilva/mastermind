@@ -1,48 +1,42 @@
 export class UserService {
-	constructor ($http, System, Logger) {
+	constructor ($http, System, localStorageService) {
 		'ngInject';
 
 		this.http = $http;
-		this.apiHost = System.restUrl + 'user';
-		this.log = Logger;
+		this.apiHost = System.restUrlBackEnd + 'users';
+		this.errorMessage = 'Problem on request user resource';
+		this.storage = localStorageService;
+	}
+
+	update(param) {
+		return this.http.put(this.apiHost, param)
+		.catch(() => {
+			this.log.error(this.errorMessage);
+		});
+	}
+
+	insert(param) {
+		return this.http.post(this.apiHost, param)
+		.catch(() => {
+			this.log.error(this.errorMessage);
+		});
+	}
+
+	logged(){
+		return this.storage.get('user');
 	}
 
 	get(param) {
 		return this.http.get(this.apiHost, {
 			params: param
 		})
+		.then((response) => {
+			this.storage.set('user', response.data);
+			return response;
+		})
 		.catch(() => {
-			this.log.error('Erro ao listar estados civis');
+			this.log.error(this.errorMessage);
 		});
 	}
 
-	remove(param) {
-		return this.http.delete(this.apiHost + '/' + param.eci_idestadocivil)
-		.then(() => {
-			this.log.success('Estado civil removido com sucesso');
-		})
-		.catch(() => {
-			this.log.error('Erro ao remover estado civil');
-		});
-	}
-
-	update(param) {
-		return this.http.put(this.apiHost + '/' + param.eci_idestadocivil, param)
-		.then(() => {
-			this.log.success('Estado civil atualizado com sucesso');
-		})
-		.catch(() => {
-			this.log.error('Erro ao atualizar estado civil');
-		});
-	}
-
-	insert(param) {
-		return this.http.post(this.apiHost, param)
-		.then(() => {
-			this.log.success('Estado civil incluído com sucesso');
-		})
-		.catch(() => {
-			this.log.error('Erro ao incluir estado civil');
-		});
-	}
 }
