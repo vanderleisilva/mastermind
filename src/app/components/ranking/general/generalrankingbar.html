@@ -5,19 +5,25 @@
   <hr />
   <div>
     <h3>General Ranking</h3>
-    <table class="table table-responsive table-hover">
-      <thead>
-        <tr>
-          <th>Score</th>
-          <th>User</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="item in generalrankingbar.ranking">
-          <td>{{item.p1}}</td>
-          <td>{{item.p2}}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="overflow">
+      <table class="table table-responsive table-hover">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Total Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in generalrankingbar.ranking">
+            <td>{{item.nmUser}}</td>
+            <td>{{item.pts}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p ng-show="generalrankingbar.ranking.length == 0">
+        Oh budy, it seems no one has been able to achieve that challenge until now. <br />
+        I do think you're the guy for that!
+      </p>
+    </div>
   </div>
 </div>

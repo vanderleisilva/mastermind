@@ -8,7 +8,7 @@ export class GeneralrankingbarController {
   update(){
     this.service.get('general')
     .then((response)=>{
-      this.ranking = response.result;
+      this.ranking = response.data.data;
     });
   }
 }

@@ -8,7 +8,8 @@ export function SplashDirective() {
 		templateUrl: 'app/components/splash/splash.html',
 		replace: true,
 		scope:{
-			close : '&'
+			close : '&',
+			show : "="
 		},
 		controller: SplashController,
 		controllerAs: 'splash',

@@ -9,7 +9,7 @@ export class AuthenticationController {
 
 	submit(){
 		this.isProcessing = true;
-		var request = this.user.get({
+		this.user.get({
 			nmUser: this.email,
 			nmPassword: this.password
 		})

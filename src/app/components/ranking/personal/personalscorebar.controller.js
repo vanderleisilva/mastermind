@@ -8,7 +8,7 @@ export class PersonalscorebarController {
   update(){
     this.service.get('personal')
     .then((response)=>{
-      this.ranking = response.data;
+      this.ranking = response.data.data;
     });
   }
 }

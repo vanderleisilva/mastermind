@@ -44,7 +44,9 @@ export class UserService {
 			params: param
 		})
 		.then((response) => {
-			this.storage.set('user', response.data);
+			if (response.data.success) {
+				this.storage.set('user', response.data);
+			}
 			return response;
 		})
 		.catch(() => {

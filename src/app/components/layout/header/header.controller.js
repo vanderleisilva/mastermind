@@ -2,6 +2,7 @@ export class HeaderController {
 	constructor (System, User, Dialog) {
 		'ngInject';
 
+		this.splash = !User.logged();
 		this.system = System.name;
 		this.description = System.description;
 		this.hideAll();
@@ -28,6 +29,11 @@ export class HeaderController {
 	generalRanking(){
 		this.hideAll();
 		this.generalrankingbar = true;
+	}
+
+	login(){
+		this.hideAll();
+		this.splash = true;
 	}
 
 	logout(){

@@ -1,14 +1,13 @@
 export class SplashController {
-	constructor (User) {
+	constructor () {
 		'ngInject';
-		this.display = !User.logged();
 	}
 
 	cancel(){
-		this.display = false;
+		this.show = false;
 	}
 
 	login(){
-		this.display = false;
+		this.show = false;
 	}
 }

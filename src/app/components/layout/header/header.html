@@ -23,6 +23,7 @@
 
         <ul class="nav navbar-nav navbar-right">
           <li ng-show="!!header.user.logged()"><a ui-sref="user"><i class="fa fa-home" aria-hidden="true"></i> My account</a></li>
+          <li ng-show="!header.user.logged()"><a ng-click="header.login()"><i class="fa fa-power-off" aria-hidden="true"></i> Login</a></li>
           <li ng-show="!!header.user.logged()"><a ng-click="header.logout()"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a></li>
           <li ng-show="!header.user.logged()"><a ui-sref="user"><i class="fa fa-plus" aria-hidden="true"></i> Create an account</a></li>
         </ul>
@@ -32,4 +33,5 @@
   <jh-instructionsbar show="header.instructionsbar"></jh-instructionsbar>
   <jh-generalrankingbar show="header.generalrankingbar"></jh-generalrankingbar>
   <jh-personalscorebar show="header.personalscorebar"></jh-personalscorebar>
+  <jh-splash show="header.splash" ></jh-splash>
 </header>
