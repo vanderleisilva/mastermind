@@ -20,8 +20,15 @@
           <li><a href="#"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i> General Rankings</a></li>
           <li><a href="#" ng-click="header.instructionsbar=true" ><i class="fa fa-question-circle-o" aria-hidden="true"></i> Instructions</a></li>
         </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li ng-show="!!header.user.logged()"><a ui-sref="inicio">My account</a></li>
+          <li ng-show="!!header.user.logged()"><a ng-click="header.logout()" href="#">Logout</a></li>
+          <li ng-show="!header.user.logged()"><a ui-sref="user">Create an account</a></li>
+        </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
   <jh-instructionsbar show="header.instructionsbar"></jh-instructionsbar>
+  <jh-generalrankingbar show="header.generalrankingbar"></jh-generalrankingbar>
 </header>

@@ -1,5 +1,5 @@
 export class SplashController {
-	constructor (User, $log) {
+	constructor (User) {
 		'ngInject';
 		this.display = !User.logged();
 	}
