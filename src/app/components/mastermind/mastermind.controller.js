@@ -86,15 +86,9 @@ export class MastermindController {
 			return;
 		}
 
-		this.dialog.confirm('Do you really want start a new game?')
+		this.dialog.confirm('Do you really want to start a new game?')
 		.then(() => {
 			this.new();
 		});
 	}
-
-	help(){
-
-	}
-
-
 }

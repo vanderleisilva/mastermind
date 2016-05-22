@@ -5,7 +5,7 @@ export function GeneralrankingbarDirective() {
 
 	let directive = {
 		restrict: 'E',
-		templateUrl: 'app/components/generalrankingbar/generalrankingbar.html',
+		templateUrl: 'app/components/ranking/general/generalrankingbar.html',
 		scope:{
 			show : '='
 		},

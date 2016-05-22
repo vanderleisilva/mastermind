@@ -4,11 +4,30 @@ export class HeaderController {
 
 		this.system = System.name;
 		this.description = System.description;
+		this.hideAll();
+		this.user = User;
+		this.dialog = Dialog;
+	}
+
+	hideAll(){
 		this.instructionsbar = false;
 		this.generalrankingbar = false;
 		this.personalscorebar = false;
-		this.user = User;
-		this.dialog = Dialog;
+	}
+
+	instructions(){
+		this.hideAll();
+		this.instructionsbar = true;
+	}
+
+	personalScore(){
+		this.hideAll();
+		this.personalscorebar = true;
+	}
+
+	generalRanking(){
+		this.hideAll();
+		this.generalrankingbar = true;
 	}
 
 	logout(){

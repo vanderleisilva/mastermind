@@ -16,7 +16,7 @@ export class DialogService {
 			controller: function($scope, $modalInstance){
 				'ngInject';
 
-				$scope.header = 'Confirmação';
+				$scope.header = 'Confirmation';
 				$scope.body = options.message;
 				$scope.confirmText = options.confirm;
 				$scope.cancelText = options.cancel;

@@ -1,15 +1,13 @@
 export class UserController {
-	constructor (System, User, Logger, $state) {
+	constructor (System, User, Logger, $state, $log) {
 		'ngInject';
 
 		this.system = System.name;
 		this.service = User;
 		this.state = $state;
 		this.log = Logger;
-
-		// $log.log(User.logged());
-
-		this.description = !User.logged() ? 'Create an account' : 'My account';
+		this.entidade = User.logged();
+		this.description = !this.entidade ? 'Create an account' : 'My account';
 	}
 
 	submit(){

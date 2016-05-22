@@ -5,7 +5,7 @@ export function PersonalscorebarDirective() {
 
 	let directive = {
 		restrict: 'E',
-		templateUrl: 'app/components/personalscorebar/personalscorebar.html',
+		templateUrl: 'app/components/ranking/personal/personalscorebar.html',
 		scope:{
 			show : '='
 		},
