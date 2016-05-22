@@ -52,11 +52,15 @@ export class MastermindController {
 			this.isProcessing = false;
 			var status = data.data;
 
-			if (status.solved == ' true') {
-				this.dialog.confirm("You won congratulations, do you want to start another game?")
-				.then(() => {
-					this.ranking.insert(10);
-					this.new();
+			if (status.solved !== 'true') {
+				status.time_taken = '120.10';
+				this.ranking.insert((300 - status.time_taken) / 3);
+				this.isPlaying = false;
+				this.dialog.confirm("You won! Congratulations!!! Do you want to start another game?")
+				.then((response) => {
+					if (response) {
+						this.new();
+					}
 				});
 				return;
 			}
@@ -70,8 +74,10 @@ export class MastermindController {
 
 			this.isPlaying = false;
 			this.dialog.confirm("Oh no, you lose! Do you want to start another game?")
-			.then(() => {
-				this.new();
+			.then((response) => {
+				if (response) {
+					this.new();
+				}
 			});
 
 		})
@@ -87,8 +93,10 @@ export class MastermindController {
 		}
 
 		this.dialog.confirm('Do you really want to start a new game?')
-		.then(() => {
-			this.new();
+		.then((response) => {
+			if (response) {
+				this.new();
+			}
 		});
 	}
 }

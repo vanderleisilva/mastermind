@@ -35,4 +35,15 @@ export class AuthenticationController {
 		});
 	}
 
+	passwordRecover(){
+			if (!this.email) {
+				this.log.error('Please type in your password!');
+				return;
+			}
+
+			this.user.passwordRecover(this.email)
+			.then(() => {
+					this.log.success("Please check your email box, we've sent to you a reminder");
+			});
+	}
 }

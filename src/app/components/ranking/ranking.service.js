@@ -28,10 +28,8 @@ export class RankingService {
 		token = token ? token.nmToken : '';
 
 		return this.http.post(this.apiHost, {
-			params: {
-				nmToken: token,
-				vlScore : score
-			}
+			nmToken: token,
+			vlScore : score
 		})
 		.catch(() => {
 			this.log.error(this.errorMessage);

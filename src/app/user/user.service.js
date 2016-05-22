@@ -4,6 +4,7 @@ export class UserService {
 
 		this.http = $http;
 		this.apiHost = System.restUrlBackEnd + 'users';
+		this.passRecoverApi = System.restUrlBackEnd + 'passRecover';
 		this.storage = localStorageService;
 		this.errorMessage = 'Problem on user request';
 		this.log = $log;
@@ -48,6 +49,17 @@ export class UserService {
 				this.storage.set('user', response.data);
 			}
 			return response;
+		})
+		.catch(() => {
+			this.log.error(this.errorMessage);
+		});
+	}
+
+	passwordRecover(email) {
+		return this.http.get(this.passRecoverApi, {
+			params: {
+				nmEmail : email
+			}
 		})
 		.catch(() => {
 			this.log.error(this.errorMessage);

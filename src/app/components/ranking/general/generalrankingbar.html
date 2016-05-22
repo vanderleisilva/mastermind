@@ -4,26 +4,38 @@
   </div>
   <hr />
   <div>
-    <h3>General Ranking</h3>
-    <div class="overflow">
-      <table class="table table-responsive table-hover">
+      <table st-table="generalrankingbar.displayedCollection" st-safe-src="generalrankingbar.ranking" class="table table-responsive table-hover">
         <thead>
+          <tr>
+  					<td>
+              <h3>General Ranking</h3>
+  					</td>
+  					<td>
+  						<input st-search="" class="form-control" placeholder="Filter" type="text"/>
+  					</td>
+  				</tr>
           <tr>
             <th>User</th>
             <th>Total Score</th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="item in generalrankingbar.ranking">
+          <tr ng-repeat="item in generalrankingbar.displayedCollection">
             <td>{{item.nmUser}}</td>
             <td>{{item.pts}}</td>
           </tr>
         </tbody>
+        <tfoot>
+  				<tr>
+  					<td colspan="2" class="text-right">
+  						<div st-pagination="" st-items-by-page="10" st-displayed-pages="10"></div>
+  					</td>
+  				</tr>
+  			</tfoot>
       </table>
       <p ng-show="generalrankingbar.ranking.length == 0">
         Oh budy, it seems no one has been able to achieve that challenge until now. <br />
         I do think you're the guy for that!
       </p>
-    </div>
   </div>
 </div>
