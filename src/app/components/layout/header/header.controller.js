@@ -6,6 +6,7 @@ export class HeaderController {
 		this.description = System.description;
 		this.instructionsbar = false;
 		this.generalrankingbar = false;
+		this.personalscorebar = false;
 		this.user = User;
 		this.dialog = Dialog;
 	}

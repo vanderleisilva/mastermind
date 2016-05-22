@@ -3,5 +3,3 @@ export class GeneralrankingbarService {
 		'ngInject';
 	}
 }
-
-

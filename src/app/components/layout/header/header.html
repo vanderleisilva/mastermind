@@ -1,4 +1,4 @@
-<header>
+<header class="header">
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -16,7 +16,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
         <ul class="nav navbar-nav">
-          <li><a ng-click=""><i class="fa fa-user" aria-hidden="true"></i> Personal Score</a></li>
+          <li><a ng-click="header.personalscorebar=true"><i class="fa fa-user" aria-hidden="true"></i> Personal Score</a></li>
           <li><a ng-click="header.generalrankingbar=true"><i class="fa fa-sort-amount-desc" aria-hidden="true"></i> General Rankings</a></li>
           <li><a ng-click="header.instructionsbar=true" ><i class="fa fa-question-circle-o" aria-hidden="true"></i> Instructions</a></li>
         </ul>
@@ -31,4 +31,5 @@
   </nav>
   <jh-instructionsbar show="header.instructionsbar"></jh-instructionsbar>
   <jh-generalrankingbar show="header.generalrankingbar"></jh-generalrankingbar>
+  <jh-personalscorebar show="header.personalscorebar"></jh-personalscorebar>
 </header>

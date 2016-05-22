@@ -22,25 +22,14 @@ export class UserService {
 	}
 
 	insert(param) {
-		this.log.log(param);
-
-		return this.http({
-		  method: 'POST',
-		  url: this.apiHost,
-			data : param
+		return this.http.post(this.apiHost, param)
+		.then((response) => {
+			this.storage.set('user', response);
+			return response;
+		})
+		.catch(() => {
+			this.log.error(this.errorMessage);
 		});
-
-		// return this.http.post(this.apiHost, param)
-		// .then((response) => {
-		// 	this.log.log(response);
-		// 	alert('merda');
-		// 	this.storage.set('user', response);
-		// 	return response;
-		// })
-		// .catch(() => {
-		// 	alert('merda 123');
-		// 	this.log.error(this.errorMessage);
-		// });
 	}
 
 	logged(){

@@ -1,12 +1,11 @@
 export class UserController {
-	constructor (System, User, Logger, $state, $log) {
+	constructor (System, User, Logger, $state) {
 		'ngInject';
 
 		this.system = System.name;
 		this.service = User;
 		this.state = $state;
 		this.log = Logger;
-		this.log2 = $log;
 
 		// $log.log(User.logged());
 
@@ -24,10 +23,9 @@ export class UserController {
 			return;
 		}
 
-		this.service.insert(this.entidade).then((response) => {
-			// this.log2.log(response);
+		this.service.insert(this.entidade).then(() => {
 			this.log.success('Account created successfuly!');
-			// this.state.go('inicio');
+			this.state.go('inicio');
 		});
 
 	}

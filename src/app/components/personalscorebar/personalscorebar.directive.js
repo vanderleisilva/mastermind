@@ -6,6 +6,9 @@ export function PersonalscorebarDirective() {
 	let directive = {
 		restrict: 'E',
 		templateUrl: 'app/components/personalscorebar/personalscorebar.html',
+		scope:{
+			show : '='
+		},
 		replace: true,
 		controller: PersonalscorebarController,
 		controllerAs: 'personalscorebar',
@@ -14,5 +17,3 @@ export function PersonalscorebarDirective() {
 
 	return directive;
 }
-
-
