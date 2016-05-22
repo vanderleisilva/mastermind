@@ -1,4 +1,8 @@
 <article  class="mastermind">
+  <div class="text-right">
+			<button type="button" ng-disabled="mastermind.isProcessing" ng-click="mastermind.promptNew()" class="btn btn-info btn-lg">Start new game! <i class="fa fa-hand-scissors-o" aria-hidden="true"></i></button>
+	</div>
+  <hr>
   <div class="panel panel-info">
     <div class="panel-heading">
       <div class="row">
@@ -6,7 +10,7 @@
           Mastermind Online
         </div>
         <div class="col-md-8">
-          <div class="progress" title="Time remaining">
+          <div class="progress" ng-show="mastermind.isPlaying" title="Time remaining">
             <uib-progressbar animate="true" value="mastermind.progress" type="info"><b>{{mastermind.progress}}%</b></uib-progressbar>
           </div>
         </div>
@@ -33,14 +37,13 @@
       </div>
     </div>
     <div class="panel-footer">
-      <div class="row selected-bullet">
+      <div ng-show="mastermind.isPlaying" class="row selected-bullet">
         <div ng-repeat="bullet in mastermind.service.bullets" class="col-xs-1 mm-field">
           <i ng-click="mastermind.selected = bullet" ng-class="[bullet.color, bullet.color == mastermind.selected.color ? 'selected' : '']"></i>
         </div>
         <div class="col-xs-4 text-center">
           <button ng-disabled="mastermind.isProcessing" type="button" class="btn btn-default" ng-click="mastermind.check()"><i class="fa fa-check" aria-hidden="true"></i> Check</button>
           <button type="button" class="btn btn-default" title="How to play" ng-click="mastermind.help()" ><i class="fa fa-question-circle-o" aria-hidden="true"></i> Help</button>
-          <button ng-disabled="mastermind.isProcessing" type="button" class="btn btn-warning" title="Start new game" ng-click="mastermind.promptNew()" ><i class="fa fa-file-o" aria-hidden="true"></i> New</button>
         </div>
       </div>
     </div>

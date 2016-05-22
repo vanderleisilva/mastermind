@@ -4,7 +4,7 @@ export class MastermindController {
 		this.dialog = Dialog;
 		this.interval = $interval;
 		this.service = Mastermind;
-		//this.new();
+		this.isPlaying = false;
 	}
 
 	timer(){
@@ -22,7 +22,7 @@ export class MastermindController {
 			.then(() => {
 				this.service.new();
 			});
-    }, 300000 / 100);
+    }, 600000 / 100);
 	}
 
 	guess(stage, position){
@@ -35,6 +35,7 @@ export class MastermindController {
 	new(){
 		this.service.new({user : "maria"})
 		.then((data) => {
+			this.isPlaying = true;
 			this.answer = data;
 			this.currentStage = 1;
 			this.results = [];
@@ -74,6 +75,11 @@ export class MastermindController {
 	}
 
 	promptNew(){
+		if (!this.isPlaying) {
+			this.new();
+			return;
+		}
+
 		this.dialog.confirm('Do you really want start a new game?')
 		.then(() => {
 			this.new();

@@ -7,6 +7,9 @@ export function SplashDirective() {
 		restrict: 'E',
 		templateUrl: 'app/components/splash/splash.html',
 		replace: true,
+		scope:{
+			close : '&'
+		},
 		controller: SplashController,
 		controllerAs: 'splash',
 		bindToController: true

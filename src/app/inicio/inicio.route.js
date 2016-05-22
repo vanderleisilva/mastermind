@@ -4,7 +4,7 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
 	$stateProvider.state('inicio', {
 		url: '/',
 		templateUrl: 'app/inicio/inicio.html',
-		controller: 'InicioController as inicio',
+		controller: 'InicioController as vm',
 		requireLogin: false,
 		ncyBreadcrumb: {
 			label: 'Início'
