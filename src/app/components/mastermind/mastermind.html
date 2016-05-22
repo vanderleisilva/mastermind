@@ -14,28 +14,17 @@
     </div>
     <div class="panel-body">
       <div class="mm-panel">
-        <table class="table table-hover table-responsive">
+        <table class="table table-responsive">
           <tbody>
-            <tr ng-repeat="bullet in mastermind.bullets">
-              <td class="mm-stage text-center">{{bullet}}</td>
-              <td class="mm-field"><i class="empty"></i></td>
-              <td class="mm-field"><i class="empty"></i></td>
-              <td class="mm-field"><i class="empty"></i></td>
-              <td class="mm-field"><i class="empty"></i></td>
-              <td class="mm-field"><i class="empty"></i></td>
-              <td class="mm-field"><i class="empty"></i></td>
-              <td class="mm-field"><i class="empty"></i></td>
-              <td class="mm-field"><i class="empty"></i></td>
+            <tr ng-repeat="stage in mastermind.service.stages" class="{{mastermind.currentStage == stage ? 'current-stage' : ''}}" >
+              <td class="mm-stage text-center">{{stage}}</td>
+              <td ng-repeat="bullet in mastermind.service.bullets" class="mm-field">
+                <i ng-click="mastermind.guess(stage, bullet.item)" class="empty" ng-class="mastermind.guessBullets[stage][bullet.item] ? mastermind.guessBullets[stage][bullet.item].color : '' "></i>
+              </td>
               <td class="mm-partial">
-                  <div class="text-center">
-                    <i class="empty"></i>
-                    <i class="empty"></i>
-                    <i class="empty"></i>
-                    <i class="empty"></i>
-                    <i class="empty"></i>
-                    <i class="empty"></i>
-                    <i class="empty"></i>
-                    <i class="empty"></i>
+                  <div class="text-center result">
+                    <i ng-repeat="bullet in mastermind.service.bullets" ng-class="[mastermind.results[stage-1].exact >= bullet.item ? 'black' : '', bullet.item > mastermind.results[stage-1].exact && bullet.item <= mastermind.results[stage-1].exact + mastermind.results[stage-1].near ? 'white' : '']" >
+                    </i>
                   </div>
               </td>
             </tr>
@@ -44,19 +33,14 @@
       </div>
     </div>
     <div class="panel-footer">
-      <div class="row">
-        <div class="col-xs-1 mm-field"><i class="red"></i></div>
-        <div class="col-xs-1 mm-field"><i class="green"></i></div>
-        <div class="col-xs-1 mm-field"><i class="blue"></i></div>
-        <div class="col-xs-1 mm-field"><i class="yellow"></i></div>
-        <div class="col-xs-1 mm-field"><i class="orange"></i></div>
-        <div class="col-xs-1 mm-field"><i class="purple"></i></div>
-        <div class="col-xs-1 mm-field"><i class="cyan"></i></div>
-        <div class="col-xs-1 mm-field"><i class="magenta"></i></div>
+      <div class="row selected-bullet">
+        <div ng-repeat="bullet in mastermind.service.bullets" class="col-xs-1 mm-field">
+          <i ng-click="mastermind.selected = bullet" ng-class="[bullet.color, bullet.color == mastermind.selected.color ? 'selected' : '']"></i>
+        </div>
         <div class="col-xs-4 text-center">
-          <button type="button" class="btn btn-default" ng-click="mastermind.check()"><i class="fa fa-check" aria-hidden="true"></i> Check</button>
+          <button ng-disabled="mastermind.isProcessing" type="button" class="btn btn-default" ng-click="mastermind.check()"><i class="fa fa-check" aria-hidden="true"></i> Check</button>
           <button type="button" class="btn btn-default" title="How to play" ng-click="mastermind.help()" ><i class="fa fa-question-circle-o" aria-hidden="true"></i> Help</button>
-          <button type="button" class="btn btn-warning" title="Start new game" ng-click="mastermind.new()" ><i class="fa fa-file-o" aria-hidden="true"></i> New</button>
+          <button ng-disabled="mastermind.isProcessing" type="button" class="btn btn-warning" title="Start new game" ng-click="mastermind.promptNew()" ><i class="fa fa-file-o" aria-hidden="true"></i> New</button>
         </div>
       </div>
     </div>

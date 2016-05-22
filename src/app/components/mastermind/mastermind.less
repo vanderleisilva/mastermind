@@ -1,5 +1,24 @@
 .mastermind{
 
+    .current-stage td{
+      background-color: @panel-footer-bg;
+    }
+
+    .current-stage .mm-field i{
+      cursor: pointer;
+    }
+
+    .selected-bullet .mm-field i{
+      cursor: pointer;
+      opacity: 0.5;
+      border: hidden 3px;
+    }
+
+    .selected-bullet .mm-field i:hover, .mm-field > i.selected{
+      opacity: 1;
+      border: solid 3px;
+    }
+
     .progress{
         margin-bottom: 0;
     }
@@ -12,12 +31,24 @@
         width: 30px;
     }
 
+    .mm-partial i{
+      background-color: #DFBB87;
+    }
+
+    .mm-partial i.black{
+      background: black;
+    }
+
+    .mm-partial i.white{
+      background: white;
+    }
+
     .mm-stage{
         line-height: 30px;
     }
 
-    .mm-partial{
-        max-width: 120px;
+    .mm-partial .result{
+        max-width: 60px;
     }
 
     .mm-partial i{

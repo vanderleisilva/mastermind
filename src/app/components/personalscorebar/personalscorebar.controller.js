@@ -1,10 +1,8 @@
-export class InstructionsbarController {
+export class PersonalscorebarController {
 constructor () {
 'ngInject';
 
 $scope.showContainer = false;
-
-}
 
 }
 
