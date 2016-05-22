@@ -7,6 +7,7 @@ import './components/dialog/dialog.module';
 import './components/layout/layout.module';
 
 import './inicio/inicio.module';
+import './user/user.module';
 // -------
 
 angular.module('app', [
@@ -18,5 +19,6 @@ angular.module('app', [
 	'app.components.dialog',
 	'app.components.layout',
 
-	'app.inicio'
+	'app.inicio',
+	'app.user'
 ]);

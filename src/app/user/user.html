@@ -1,0 +1,29 @@
+<div class="page-header">
+	<h3>{{vm.system}} <small>{{vm.title}}</small></h3>
+</div>
+<form novalidate="novalidate" ng-submit="vm.submit()">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="sr-only" for="username">Name</label>
+				<input type="text" class="form-control" placeholder="User name" required ng-model="vm.username">
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="sr-only" for="email">Email</label>
+				<input type="email" class="form-control" placeholder="E-mail" required ng-model="vm.email">
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label class="sr-only" for="password">Password</label>
+				<input type="password" class="form-control" required ng-model="vm.password" placeholder="password">
+			</div>
+		</div>
+		<div class="col-md-4">
+			<button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Create</button>
+			<a role="button" ui-sref="inicio" class="btn btn-default"><i class="fa fa-circle-o" aria-hidden="true"> Cancel</i></a>
+		</div>
+	</div>
+</form>

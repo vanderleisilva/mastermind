@@ -62,15 +62,21 @@ export class MastermindController {
 			this.currentStage++;
 			this.results.push(status.result);
 
-			if (this.currentStage < this.service.stages.length) {
+			if (this.currentStage <= this.service.stages.length) {
 				return;
 			}
 
 			this.dialog.confirm("Oh no, you lose! Do you want to start another game?")
 			.then(() => {
 				this.new();
+			})
+			.catch(()=>{
+				this.isPlaying = false;
 			});
 
+		})
+		.catch(() => {
+			this.isProcessing = false;
 		});
 	}
 
