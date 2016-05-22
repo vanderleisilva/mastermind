@@ -1,0 +1,11 @@
+<div class="splash" ng-switch="splash.display">
+  <div class="form" ng-switch-when="true">
+    <div class="page-header">
+    	<h3>Welcome to {{system}} <br/><small>signup or login to score your progress and compare with your friends!</small></h3>
+    </div>
+    <jh-authentication login="splash.login(status)" cancel="splash.cancel()" ></jh-authentication>
+  </div>
+  <section class="splash-bg" ng-switch-when="true">
+
+  </section>
+</div>

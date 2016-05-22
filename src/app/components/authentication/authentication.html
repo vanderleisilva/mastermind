@@ -1,19 +1,34 @@
 <form novalidate="novalidate" ng-submit="authentication.submit()">
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-5">
 			<div class="form-group">
-				<label class="sr-only" for="username">SSHD</label>
+				<label class="sr-only" for="username">Username</label>
 				<input type="text" class="form-control" id="username" placeholder="user name" ng-minlength="8" maxlength="8" required ng-model="authentication.username">
 			</div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-5">
 			<div class="form-group">
-				<label class="sr-only" for="password">Senha</label>
+				<label class="sr-only" for="password">Password</label>
 				<input type="password" class="form-control" id="password" required ng-model="authentication.password" placeholder="password">
 			</div>
 		</div>
-		<div class="col-md-1">
-			<button type="submit" class="btn btn-primary">Go</button>
+		<div class="col-md-2">
+			<button type="submit" class="btn btn-primary btn-block">Go <i class="fa fa-check" aria-hidden="true"></i></button>
+		</div>
+	</div>
+	<p class="text-right">
+		<a href="#">I forgot my password</a>
+	</p>
+	<div>
+			<button type="button" class="btn btn-info btn-lg">Login with facebook <i class="fa fa-facebook-square" aria-hidden="true"></i></button></button>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-md-6">
+			<a href="#" ng-click="">Create an account!</a>
+		</div>
+		<div class="col-md-6 text-right">
+			<a href="#" ng-click="authentication.cancel()">No thank's, I don't want now, maybe latter!</a>
 		</div>
 	</div>
 </form>

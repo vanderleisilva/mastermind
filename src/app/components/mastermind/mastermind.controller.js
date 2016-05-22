@@ -1,11 +1,10 @@
 export class MastermindController {
-	constructor (Dialog, $interval, Mastermind, $log) {
+	constructor (Dialog, $interval, Mastermind) {
 		'ngInject';
 		this.dialog = Dialog;
 		this.interval = $interval;
 		this.service = Mastermind;
-		this.log = $log;
-		this.new();
+		//this.new();
 	}
 
 	timer(){
@@ -50,7 +49,6 @@ export class MastermindController {
 		.then((data) => {
 			this.isProcessing = false;
 			var status = data.data;
-			this.log.log(status.result);
 
 			if (status.solved == ' true') {
 				this.dialog.confirm("You won congratulations, do you want to start another game?")

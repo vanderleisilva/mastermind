@@ -6,7 +6,7 @@ export function AuthenticationDirective() {
 	let directive = {
 		restrict: 'E',
 		scope:{
-			showRecaptcha : '=',
+			cancel : '&',
 			login : '&'
 		},
 		templateUrl: 'app/components/authentication/authentication.html',
