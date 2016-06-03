@@ -1,5 +1,5 @@
 export class UserController {
-	constructor (System, User, Logger, $state, $log) {
+	constructor (System, User, Logger, $state) {
 		'ngInject';
 
 		this.system = System.name;

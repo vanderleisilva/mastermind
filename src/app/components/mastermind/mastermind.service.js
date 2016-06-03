@@ -1,10 +1,9 @@
 export class MastermindService {
-	constructor($http, System, Logger, $log){
+	constructor($http, System, Logger){
 		'ngInject';
 		this.http = $http;
 		this.apiHost = System.restUrl;
 		this.log = Logger;
-		this.log2 = $log;
 		this.errorMessage = 'Problem on start game';
 
 		this.stages = [10,9,8,7,6,5,4,3,2,1];
@@ -48,7 +47,7 @@ export class MastermindService {
 				item : 8,
 				label : 'M',
 				color: 'magenta'
-			},
+			}
 		]
 	}
 
@@ -70,17 +69,17 @@ export class MastermindService {
 				continue;
 			}
 
-  		if (value === false) {
-  			this.log.error('Ops, there is something missing, please fill every values for stage ' + stage);
+			if (value === false) {
+				this.log.error('Ops, there is something missing, please fill every values for stage ' + stage);
 				return;
-  		}
+			}
 
 			colorCode+= value.label;
 		}
 
 		return this.http({
 			method: 'POST',
-  		url: this.apiHost + 'guess',
+			url: this.apiHost + 'guess',
 			params: {
 				code : colorCode,
 				game_key : this.user.game_key
@@ -94,7 +93,7 @@ export class MastermindService {
 	new(user){
 		return this.http({
 			method: 'POST',
-  		url: this.apiHost + 'new_game',
+			url: this.apiHost + 'new_game',
 			params: user
 		})
 		.then((data) => {
