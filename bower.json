@@ -39,7 +39,13 @@
         "dist/fonts/glyphicons-halflings-regular.woff",
         "dist/fonts/glyphicons-halflings-regular.woff2"
       ]
-    }
+    },
+	"font-awesome": {
+	  "main": [
+	    "css/font-awesome.css",
+	    "fonts/*"
+	  ]
+	}
   },
   "resolutions": {
     "jquery": "~2.1.4",
