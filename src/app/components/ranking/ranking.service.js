@@ -1,22 +1,15 @@
 export class RankingService {
-	constructor ($http, System, User) {
+	constructor ($firebaseObject) {
 		'ngInject';
-
-		this.http = $http;
-		this.apiHost = System.restUrlBackEnd + 'scores';
-		this.errorMessage = 'Problem on raking request';
-		this.user = User;
+		this.database = $firebaseObject(firebase.database().ref());
+		this.errorMessage = 'Problem on ranking request';
+		// this.user = User;
 	}
 
 	get(option) {
-		var token = this.user.logged();
-		token = token ? token.nmToken : '';
-
-		return this.http.get(this.apiHost, {
-			params: {
-				action : option,
-				nmToken: token
-			}
+		return this.database.$loaded()
+		.then(function(data) {
+			return data.ranking;
 		})
 		.catch(() => {
 			this.log.error(this.errorMessage);

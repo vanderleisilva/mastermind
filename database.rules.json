@@ -1,4 +1,9 @@
 {
-  ".read": true,
-  ".write": true
+	"rules": {
+		"users": {
+			"$uid": {
+				".read": "auth != null && auth.uid == $uid"
+			}
+		}
+	}
 }

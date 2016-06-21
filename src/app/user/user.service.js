@@ -1,13 +1,10 @@
 export class UserService {
-	constructor ($http, System, localStorageService, $log) {
+	constructor (Logger, $firebaseObject, $firebaseAuth) {
 		'ngInject';
-
-		this.http = $http;
-		this.apiHost = System.restUrlBackEnd + 'users';
-		this.passRecoverApi = System.restUrlBackEnd + 'passRecover';
-		this.storage = localStorageService;
+		this.database = $firebaseObject(firebase.database().ref());
 		this.errorMessage = 'Problem on user request';
-		this.log = $log;
+		this.log = Logger;
+		this.auth = $firebaseAuth();
 	}
 
 	update(param) {
@@ -22,37 +19,13 @@ export class UserService {
 	}
 
 	insert(param) {
-		return this.http.post(this.apiHost, param)
-		.then((response) => {
-			this.storage.set('user', response.data);
-			return response;
-		})
-		.catch(() => {
-			this.log.error(this.errorMessage);
-		});
-	}
-
-	logged(){
-		return this.storage.get('user');
-	}
-
-	logout(){
-		this.storage.set('user', null);
+		this.database.users = this.database.users ? this.database.users : [];
+		this.database.users.push(param);
+		return this.database.$save().catch(error => { this.log.error(this.errorMessage);	});
 	}
 
 	get(param) {
-		return this.http.get(this.apiHost, {
-			params: param
-		})
-		.then((response) => {
-			if (response.data.success) {
-				this.storage.set('user', response.data);
-			}
-			return response;
-		})
-		.catch(() => {
-			this.log.error(this.errorMessage);
-		});
+		this.auth.$signInWithEmailAndPassword(param.nmUser, param.nmPassword).catch(error => { this.log.error(this.errorMessage);	});
 	}
 
 	passwordRecover(email) {
@@ -64,6 +37,10 @@ export class UserService {
 		.catch(() => {
 			this.log.error(this.errorMessage);
 		});
+	}
+
+	logged(){
+		return !!this.auth.$getAuth();
 	}
 
 }

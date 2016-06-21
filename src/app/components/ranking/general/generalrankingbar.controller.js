@@ -1,14 +1,11 @@
 export class GeneralrankingbarController {
-  constructor (Ranking) {
-    'ngInject';
-    this.service = Ranking;
-    this.update();
-  }
+	constructor (Ranking) {
+		'ngInject';
+		this.service = Ranking;
+		this.update();
+	}
 
-  update(){
-    this.service.get('general')
-    .then((response)=>{
-      this.ranking = response.data.data;
-    });
-  }
+	update(){
+		this.service.get('general').then(ranking => { this.ranking = ranking });
+	}
 }

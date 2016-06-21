@@ -25,6 +25,5 @@ export class UserController {
 			this.log.success('Account created successfuly!');
 			this.state.go('inicio');
 		});
-
 	}
 }
