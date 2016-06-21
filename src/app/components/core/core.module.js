@@ -13,6 +13,7 @@ export default angular.module('app.components.core', [
 	'jcs-autoValidate',
 	'angular-loading-bar',
 	'ngAnimate',
+	'firebase',
 	'LocalStorageModule'
 ])
 .provider('System', SystemProvider)
