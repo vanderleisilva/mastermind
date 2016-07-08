@@ -1,8 +1,8 @@
 export class HeaderController {
-	constructor (System, User, Dialog) {
+	constructor (System, User, Dialog, $firebaseAuth) {
 		'ngInject';
 
-		this.splash = !User.logged();
+		$firebaseAuth().$onAuthStateChanged((data) => { this.splash = !data; });
 		this.system = System.name;
 		this.description = System.description;
 		this.hideAll();

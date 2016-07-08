@@ -1,18 +1,19 @@
 export class RankingService {
-	constructor ($firebaseObject) {
+	constructor ($firebaseObject, Logger) {
 		'ngInject';
-		this.database = $firebaseObject(firebase.database().ref());
+		this.database = $firebaseObject(firebase.database().ref('ranking'));
 		this.errorMessage = 'Problem on ranking request';
 		// this.user = User;
+		this.log = Logger;
 	}
 
 	get(option) {
 		return this.database.$loaded()
 		.then(function(data) {
-			return data.ranking;
+			return data;
 		})
-		.catch(() => {
-			this.log.error(this.errorMessage);
+		.catch((e) => {
+			this.log.error(e);
 		});
 	}
 
@@ -24,8 +25,8 @@ export class RankingService {
 			nmToken: token,
 			vlScore : score
 		})
-		.catch(() => {
-			this.log.error(this.errorMessage);
+		.catch((e) => {
+			this.log.error(e);
 		});
 	}
 }

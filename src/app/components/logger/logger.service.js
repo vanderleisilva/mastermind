@@ -7,22 +7,22 @@ export class LoggerService {
 	}
 
 	error(message, data, title = 'MastermindUI') {
-		this.toastr.error(message, title);
+		this.toastr.error(message.toString(), title);
 		this.log.error('Error: ' + message, data);
 	}
 
 	info(message, data, title = 'MastermindUI') {
-		this.toastr.info(message, title);
+		this.toastr.info(message.toString(), title);
 		this.log.info('Info: ' + message, data);
 	}
 
 	success(message, data, title = 'MastermindUI') {
-		this.toastr.success(message, title);
+		this.toastr.success(message.toString(), title);
 		this.log.info('Success: ' + message, data);
 	}
 
 	warning(message, data, title = 'MastermindUI') {
-		this.toastr.warning(message, title);
+		this.toastr.warning(message.toString(), title);
 		this.log.warn('Warning: ' + message, data);
 	}
 }
