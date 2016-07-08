@@ -8,10 +8,10 @@ import '../splash/splash.module';
 
 export default angular.module('app.components.layout', [
 	'ui.bootstrap',
-  'app.components.instructionsbar',
+	'app.components.instructionsbar',
 	'app.components.ranking',
 	'app.components.splash'
-])
+	])
 .directive('jhMenu', MenuDirective)
 .directive('jhHeader', HeaderDirective)
 .directive('jhFooter', FooterDirective);

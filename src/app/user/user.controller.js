@@ -7,6 +7,9 @@ export class UserController {
 		this.state = $state;
 		this.log = Logger;
 		this.entidade = User.logged();
+		
+		console.log(this.entidade);	
+
 		this.description = !this.entidade ? 'Create an account' : 'My account';
 	}
 

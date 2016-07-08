@@ -7,19 +7,14 @@ export class AuthenticationController {
 		this.log = Logger;
 	}
 
-	submit(){
+	validate(){
 		this.isProcessing = true;
 		this.user.get({
-			nmUser: this.email,
-			nmPassword: this.password
+			email: this.email,
+			password: this.password
 		})
 		.then((response) => {
-			if (!response.data.success) {
-				this.log.error(response.data.message);
-				return;
-			}
 			this.log.success('Hello fellow, welcome back!');
-
 			this.login({
 				status: response.data
 			});
@@ -36,14 +31,14 @@ export class AuthenticationController {
 	}
 
 	passwordRecover(){
-			if (!this.email) {
-				this.log.error('Please type in your password!');
-				return;
-			}
+		if (!this.email) {
+			this.log.error('Please type in your password!');
+			return;
+		}
 
-			this.user.passwordRecover(this.email)
-			.then(() => {
-					this.log.success("Please check your email box, we've sent to you a reminder");
-			});
+		this.user.passwordRecover(this.email)
+		.then(() => {
+			this.log.success("Please check your email box, we've sent to you a reminder");
+		});
 	}
 }

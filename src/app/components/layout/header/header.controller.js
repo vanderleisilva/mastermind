@@ -38,8 +38,10 @@ export class HeaderController {
 
 	logout(){
 		this.dialog.confirm("Do you really want logout?")
-		.then(() => {
-			this.user.logout();
+		.then((option) => {
+			if (option) {
+				this.user.logout();
+			}
 		});
 	}
 }

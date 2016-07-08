@@ -1,7 +1,7 @@
 export class UserService {
-	constructor (Logger, $firebaseObject, $firebaseAuth) {
+	constructor (Logger, $firebaseAuth, $firebaseArray) {
 		'ngInject';
-		this.database = $firebaseObject(firebase.database().ref());
+		this.database = $firebaseArray(firebase.database().ref().child('Users'));
 		this.errorMessage = 'Problem on user request';
 		this.log = Logger;
 		this.auth = $firebaseAuth();
@@ -19,13 +19,13 @@ export class UserService {
 	}
 
 	insert(param) {
-		this.database.users = this.database.users ? this.database.users : [];
-		this.database.users.push(param);
-		return this.database.$save().catch(error => { this.log.error(this.errorMessage);	});
+		return this.auth.$createUserWithEmailAndPassword(param.email, param.nmPassword).catch((error) => {
+			this.log.error("Error creating user:", error);
+		});
 	}
 
 	get(param) {
-		this.auth.$signInWithEmailAndPassword(param.nmUser, param.nmPassword).catch(error => { this.log.error(this.errorMessage);	});
+		return this.auth.$signInWithEmailAndPassword(param.email, param.password).catch(error => { this.log.error(this.errorMessage);	});
 	}
 
 	passwordRecover(email) {
@@ -40,7 +40,10 @@ export class UserService {
 	}
 
 	logged(){
-		return !!this.auth.$getAuth();
+		return this.auth.$getAuth();
 	}
 
+	logout(){
+		this.auth.$signOut();
+	}
 }
